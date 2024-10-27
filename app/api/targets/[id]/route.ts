@@ -5,6 +5,7 @@ import { Target } from "@/lib/types";
 
 const dataFilePath = path.join(process.cwd(), "data", "targets.json");
 
+// GET request handler
 export async function GET(
   _request: Request,
   { params }: { params: { id: string } }
@@ -31,6 +32,7 @@ export async function GET(
   }
 }
 
+// PATCH request handler with CORS headers
 export async function PATCH(request: Request) {
   try {
     const { id, pipelineStatus } = await request.json();
@@ -50,7 +52,12 @@ export async function PATCH(request: Request) {
 
     await fs.writeFile(dataFilePath, JSON.stringify(targets, null, 2));
 
-    return NextResponse.json({ message: "Target updated successfully" });
+    const response = NextResponse.json({ message: "Target updated successfully" });
+    response.headers.set("Access-Control-Allow-Origin", "*"); // Replace "*" with specific origin in production
+    response.headers.set("Access-Control-Allow-Methods", "GET, PATCH, POST, OPTIONS");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+    return response;
   } catch (error) {
     console.error("Error updating target:", error);
     return NextResponse.json(
@@ -60,10 +67,18 @@ export async function PATCH(request: Request) {
   }
 }
 
-// Add this function to handle unsupported methods
+// OPTIONS request handler to handle CORS preflight
 export async function OPTIONS() {
   return NextResponse.json(
     { message: "Allowed methods: GET, PATCH, POST" },
-    { status: 200, headers: { Allow: "GET, PATCH, POST" } }
+    {
+      status: 200,
+      headers: {
+        "Allow": "GET, PATCH, POST, OPTIONS",
+        "Access-Control-Allow-Origin": "*", // Replace "*" with specific origin in production
+        "Access-Control-Allow-Methods": "GET, PATCH, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }
   );
 }
