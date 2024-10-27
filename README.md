@@ -9,7 +9,6 @@ A full-stack dashboard for managing acquisition targets, built with Next.js 14, 
 - [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
 - [File Structure](#file-structure)
-- [Dependencies](#dependencies)
 - [API Routes](#api-routes)
 
 ## Features
@@ -40,7 +39,8 @@ A full-stack dashboard for managing acquisition targets, built with Next.js 14, 
    The app will be available at http://localhost:3000.
    ```
 
-   Task-Management/
+   ## Task-Management/
+
    ├── app/ # Next.js app directory
    │ ├── api/targets/ # API routes for targets
    │ ├── dashboard/ # Dashboard page
@@ -55,6 +55,7 @@ A full-stack dashboard for managing acquisition targets, built with Next.js 14, 
    ├── styles/ # Tailwind CSS configuration
    └── README.md # Project README file
 
-API Routes
+## API Routes
+
 GET /api/targets: Fetches all acquisition targets from targets.json.
 PATCH /api/targets/[id]: Updates the pipeline status of a target in targets.json.
