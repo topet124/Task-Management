@@ -1,7 +1,7 @@
 #Your answer to the bonus tasks
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-#Strategy for Managing and Tracking Pipeline Status Changes
+# Strategy for Managing and Tracking Pipeline Status Changes
 
 In order to handle updates to the pipeline statuses of acquisition targets, I set up a system where the targets.json file acts as a database. Each time a user changes a target’s status, the file is read, updated, and saved with the new data. This setup mimics a real database update, where each target has fields like id, pipelineStatus, and lastUpdated to track both the current status and the most recent update.
 
@@ -22,7 +22,7 @@ Data Validation – To prevent invalid data from corrupting the system, I’ve i
 
 # If there are items you didn't have time to implement, explain how you would approach the implementation.
 
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#################################################################################
 With more time, there are a few features I would have liked to add to make the application even more robust:
 
 Audit Log for Status Changes: I’d set up a simple audit log (maybe as a change-log.json file) that records each status update, showing the old status, new status, who made the change, and when it happened. This would help keep track of all changes for better visibility.
