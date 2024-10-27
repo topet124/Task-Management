@@ -1,70 +1,60 @@
-# Target Management Dashboard
+# Task Management Dashboard
 
-## Overview
+A full-stack dashboard for managing acquisition targets, built with Next.js 14, TypeScript, and Tailwind CSS. This project features a dashboard page for displaying, filtering, and updating acquisition targets by pipeline status.
 
-For this task, you will create a dashboard page for managing acquisition targets. This task is designed to evaluate your full-stack development skills, including your ability to work with existing codebases, implement new features, and create intuitive user interfaces.
+## Table of Contents
 
-## Task Details
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [File Structure](#file-structure)
+- [Dependencies](#dependencies)
+- [API Routes](#api-routes)
 
-### Core Components
+## Features
 
-The dashboard page should include the following components:
+- **Bar Chart**: Displays the number of acquisition targets per pipeline status.
+- **Target Table**: Lists all acquisition targets, grouped by status and sorted by last updated date.
+- **Global Filter**: Filters both the bar chart and table based on pipeline status.
+- **Editable Pipeline Status**: Allows direct updates to pipeline statuses, reflecting changes in both the UI and data file.
+- **Optimized UI**: Provides a user-friendly interface with Tailwind CSS styling and responsive design.
 
-1. **Bar Chart**: A bar chart summarizing the number of acquisition targets by pipeline status.
-2. **Target Table**: A table listing all acquisition targets, grouped by pipeline status and sorted by last updated date descending.
+## Tech Stack
 
-Assume this page and its components are actually part of a larger application, consider this when designing the components.
-
-### Additional Functionality
-
-- **Global Filter**: Add a filter that affects both the bar chart and table, allowing users to filter acquisition targets by pipeline status.
-- **Editable Pipeline Status**: Allow users to change the pipeline status of a target directly from the table (and update the database with the new status, i.e. the `data/targets.json` file).
-
-### Bonus Tasks
-
-- Design the strategy to manage and track changes to the pipeline statuses of targets. Consider the database schema, data update strategy, etc.
-- Identify any non-trivial edge cases with the implemented features and how you would handle them.
-
-## Evaluation Criteria
-
-Your submission will be evaluated based on the following criteria:
-
-1. **Functionality**: Does the component work as expected and handle edge cases?
-2. **Code Quality**: Is the code readable, maintainable, and reusable?
-3. **Design and User Experience**: Is the component visually appealing, responsive, and user-friendly?
-4. **Problem Solving**: How did you approach the problem and implement the solution?
+- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Data**: JSON file (`data/targets.json`) simulating a simple database
+- **Charts**: [Chart.js](https://www.chartjs.org/) and [react-chartjs-2](https://react-chartjs-2.js.org/)
 
 ## Getting Started
 
-1. Clone the provided Next.js 14 application repository.
-2. The application is set up with TypeScript and Tailwind CSS.
-3. A placeholder dashboard page `app/dashboard/page.tsx` is already set up for you.
-4. Sample acquisition target data is provided in `data/targets.json`. This is used to simulate database queries (see `app/api/targets/route.ts`).
+1. **Clone the Repository**:
 
-## Guidelines
+   ```bash
+   git clone https://github.com/topet124/Task-Management.git
+   cd Task-Management
+   npm install
+   npm run dev
+   The app will be available at http://localhost:3000.
+   ```
 
-- The expected time commitment is ~3-4 hours.
-- If you find yourself taking more time, focus on completing the core components.
-- You can use any tools you would normally use in day-to-day work (e.g., Google, copilot, etc.).
-- You can add, edit, or remove any files you feel necessary to complete the task.
-- You can add any additional libraries you feel necessary to complete the task as long as they have appropriate licenses.
+   Task-Management/
+   ├── app/ # Next.js app directory
+   │ ├── api/targets/ # API routes for targets
+   │ ├── dashboard/ # Dashboard page
+   │ └── layout.tsx # Main layout component
+   ├── components/ # Reusable components
+   │ ├── BarChart.tsx # Bar chart for pipeline status
+   │ └── TargetTable.tsx # Target table with pipeline status updates
+   ├── data/ # Sample data files
+   │ └── targets.json # JSON data for acquisition targets
+   ├── lib/ # Utility and type definitions
+   ├── public/ # Static assets
+   ├── styles/ # Tailwind CSS configuration
+   └── README.md # Project README file
 
-## Submission Guidelines
-
-1. Complete the code within the provided Next.js application.
-2. In the `submission-notes.md` file, add any of the following notes:
-   - Your answer to the bonus tasks
-   - If there are items you didn't have time to implement, explain how you would approach the implementation.
-   - If you have any suggestions for further improvements not included in this task, feel free to add notes about these as well.
-3. Zip up the entire project directory and email it to wendy@analyst3.ai, the project should be ready to run as is.
-
-## Questions?
-
-If you have any questions about the assignment, please don't hesitate to reach out to wendy@analyst3.ai.
-
-Good luck, and we look forward to seeing your submission!
-
-## Notes
-
-Your submission will be used for the purpose of this interview only and will not be shared with any third parties or used for any other purpose. You can share, reuse, and modify the code for your own portfolio if you wish.
-# Task-Management
+API Routes
+GET /api/targets: Fetches all acquisition targets from targets.json.
+PATCH /api/targets/[id]: Updates the pipeline status of a target in targets.json.
