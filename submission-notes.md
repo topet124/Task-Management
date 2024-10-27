@@ -1,5 +1,5 @@
 #Your answer to the bonus tasks
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+################################################################################
 
 # Strategy for Managing and Tracking Pipeline Status Changes
 
@@ -32,4 +32,4 @@ User Authentication and Permissions: To control access, I’d add a basic login 
 Bulk Actions: Adding checkboxes to select multiple items and a bulk action dropdown would make updating large numbers of targets easier. I’d bundle these into one request to keep things efficient.
 
 Error Handling and Retry Logic: For cases where network issues prevent an update, I’d add a retry option so users can retry failed changes, or save them temporarily until the connection is stable.
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#################################################################################
